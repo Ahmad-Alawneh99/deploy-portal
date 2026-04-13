@@ -2,12 +2,13 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { PlusCircle, UserIcon } from 'lucide-react';
+import { DynamicSidebarMenuitem } from '../ui/dynamic-sidebar-menu-item';
+import { DynamicSidebarHeader } from '../ui/dynamic-sidebar-header';
 
 const navItems = [
   { label: 'Manage', href: 'href' },
@@ -19,18 +20,15 @@ const navItems = [
 export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="flex flex-row items-center gap-2">
-        <UserIcon />
-        <p>Deploy Portal</p>
-      </SidebarHeader>
+      <DynamicSidebarHeader
+        text="Deploy Portal"
+        icon={<UserIcon width={28} height={28} />}
+      />
       <SidebarContent>
         <SidebarMenu className="data-closed:w-[100px]">
           {navItems.map(navItem => (
             <SidebarMenuItem key={navItem.label}>
-              <SidebarMenuButton render={<a href={navItem.href} />}>
-                <PlusCircle />
-                {navItem.label}
-              </SidebarMenuButton>
+              <SidebarMenuButton render={<DynamicSidebarMenuitem href={navItem.href} text={navItem.label} icon={<PlusCircle width={28} height={28} />} />} />
             </SidebarMenuItem>
           ))}
         </SidebarMenu>

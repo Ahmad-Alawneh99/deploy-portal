@@ -3,7 +3,7 @@ import { Card, CardContent, CardTitle } from '../ui/card';
 
 export const ProjectCard = () => {
   return (
-    <Card className="p-4 min-w-[300px]">
+    <Card className="p-4 min-w-[300px] border-l-5 border-green-500">
       <CardTitle className="text-[28px]">Project Name</CardTitle>
       <CardContent>
         <p>Deployed branch: Branch name</p>
